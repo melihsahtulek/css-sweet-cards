@@ -1,0 +1,200 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@700;400;500&display=swap");
+
+:root {
+  --blue: rgb(95, 16, 245);
+  --red: rgb(246, 71, 71);
+  --gray: rgb(108, 122, 137);
+  --white: rgb(255, 255, 255);
+  --black: rgb(0, 0, 0);
+}
+
+*,
+*::before,
+*::after {
+  font-family: "Ubuntu", sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #4e54c8; /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #8f94fb, #4e54c8); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #8f94fb, #4e54c8); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+#container {
+  width: 1200px;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.cards {
+  display: flex;
+  width: 100%;
+  margin-left: calc(-62.5px - 15px);
+}
+
+#container .card {
+  cursor: pointer;
+  background-color: var(--white);
+  width: calc(100% / 2 - 62.5px - 15px);
+  margin-left: calc(62.5px + 15px);
+  position: relative;
+  text-decoration: none;
+  padding: 0 25px;
+  border-radius: 17px;
+  height: 225px;
+}
+
+#container .card .iconContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.4);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  border-radius: 17px;
+  transition: all 0.3s;
+  z-index: 1;
+}
+
+#container .card .iconContainer .icon {
+  width: 125px;
+  height: 125px;
+}
+
+#container .card .iconContainer .icon img {
+  width: 100%;
+  height: 100%;
+}
+
+#container .card .contentContainer {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 5px;
+  filter: blur(8px);
+  border-radius: 17px;
+  padding-left: 62.5px;
+}
+
+#container .card .contentContainer h3 {
+  color: var(--red);
+  font-weight: 700;
+  font-size: 1.75rem;
+  letter-spacing: -2px;
+}
+
+#container .card .contentContainer p {
+  color: var(--gray);
+  line-height: 1.5;
+}
+
+#container .card .contentContainer button {
+  all: unset;
+  color: var(--white);
+  background-color: var(--blue);
+  font-weight: 500;
+  padding: 10px 17px;
+  border-radius: 5px;
+}
+
+@media (min-width: 1200px) {
+  #container .card:hover .iconContainer {
+    width: 125px;
+    height: 125px;
+    top: 50%;
+    transform: translateY(-50%);
+    left: calc(125px / -2);
+    z-index: 1;
+    background-color: rgba(255, 255, 255, 0.4);
+  }
+}
+
+#container .cards .card .iconContainer .icon {
+  padding: 1rem;
+}
+
+@media (min-width: 1200px) {
+  #container .card:hover .contentContainer {
+    filter: unset;
+  }
+}
+
+/************* 1200px <= *************/
+
+@media (max-width: 1200px) {
+  #container {
+    width: unset;
+    width: 100%;
+    padding: 2rem 0;
+  }
+
+  #container .cards {
+    width: 100% !important;
+    margin-left: unset;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #container .cards .card {
+    width: unset;
+    width: 325px;
+    margin-left: 0;
+    margin-top: calc((175px / 2) + 15px);
+    height: auto;
+    padding-bottom: 1rem;
+  }
+
+  #container .card .iconContainer {
+    width: 275px;
+    height: 175px;
+    top: calc(175px / -2);
+    left: calc((325px - 275px) / 2);
+    transform: unset;
+    z-index: 1;
+    background-color: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.1);
+  }
+
+  #container .card .contentContainer {
+    filter: unset;
+    padding-left: unset;
+    padding-top: calc((175px / 2) + 25px);
+  }
+}
+
+@media (max-width: 375px) {
+  #container .cards .card {
+    width: 100%;
+  }
+
+  #container .card .iconContainer {
+    width: calc(100% - 50px);
+    height: 175px;
+    top: calc(175px / -2);
+    left: calc((325px - 275px) / 2);
+    transform: unset;
+    z-index: 1;
+    background-color: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.1);
+  }
+}
